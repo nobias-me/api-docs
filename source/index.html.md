@@ -1,15 +1,8 @@
 ---
 title: API Reference
 
-language_tabs: # must be one of https://git.io/vQNgJ
-  - shell
-
 toc_footers:
-  - <a href='#'>Sign Up for a Developer Key</a>
-  - <a href='https://github.com/slatedocs/slate'>Documentation Powered by Slate</a>
-
-includes:
-  - errors
+  - <a href='#'>Questions? Email anant.goel@nobias.com </a>
 
 search: true
 ---
@@ -26,11 +19,7 @@ These APIs are a work in progress and have not been deployed it. I will update t
 
 ## Get news for a stock
 
-```shell
-curl "api.nobias.com/spotcheck/finance/stock/news/<stock_ticker>"
-```
-
-> The above command returns JSON structured like this:
+> This endpoint returns JSON structured like this:
 
 ```json
 {
@@ -122,176 +111,132 @@ boolean value indiciating if this article predicts the stock movement correctly.
 ##### date
 Date/time the news article was written (UTC)
 
+## Get metadata for a stock
 
-# Kittens
-
-## Get All Kittens
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get()
-```
-
-```shell
-curl "http://example.com/api/kittens"
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let kittens = api.kittens.get();
-```
-
-> The above command returns JSON structured like this:
-
-```json
-[
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
-  }
-]
-```
-
-This endpoint retrieves all kittens.
-
-### HTTP Request
-
-`GET http://example.com/api/kittens`
-
-### Query Parameters
-
-Parameter | Default | Description
---------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
-
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
-
-## Get a Specific Kitten
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```shell
-curl "http://example.com/api/kittens/2"
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.get(2);
-```
-
-> The above command returns JSON structured like this:
+> This endpoint returns JSON structured like this:
 
 ```json
 {
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
+    "stock": "AAPL",
+    "authors": [
+        {
+            "id": "random_id",
+            "name": "name of the author",
+            "accuracy": 0.8,
+            "n_articles": 10,
+        },
+        {
+            "id": "random_id2",
+            "name": "name of the author2",
+            "accuracy": 0.6,
+            "n_articles": 5,
+        },
+    ],
+    "n_buy": 10,
+    "n_sell": 3,
+    "n_unknown": 5,
 }
 ```
 
-This endpoint retrieves a specific kitten.
-
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
+This endpoint retrieves metadata for a given stock.
 
 ### HTTP Request
 
-`GET http://example.com/kittens/<ID>`
+`GET https://api.nobias.com/spotcheck/finance/stock/meta/<TICKER>`
 
 ### URL Parameters
 
 Parameter | Description
 --------- | -----------
-ID | The ID of the kitten to retrieve
+TICKER | The ticker of the stock you want news for (example: AAPL for Apple)
 
-## Delete a Specific Kitten
+### Response fields
 
-```ruby
-require 'kittn'
+#### stock
+Ticker of the stock you requested news for
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.delete(2)
-```
+#### author
+Array containing metadata indexed by author
 
-```python
-import kittn
+##### id
+Author Id
 
-api = kittn.authorize('meowmeowmeow')
-api.kittens.delete(2)
-```
+##### name
+Author Name
 
-```shell
-curl "http://example.com/api/kittens/2"
-  -X DELETE
-  -H "Authorization: meowmeowmeow"
-```
+##### accuracy
+float value showing % of articles this author wrote on this stock that were correct
 
-```javascript
-const kittn = require('kittn');
+##### n_articles
+number of articles written by this author on this stock
 
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.delete(2);
-```
+##### n_buy
+number of articles written on this stock with nobiasLeaning of "Buy"
 
-> The above command returns JSON structured like this:
+##### n_sell
+number of articles written on this stock with nobiasLeaning of "Sell"
+
+##### n_unknown
+number of articles written on this stock with nobiasLeaning of "Unknown"
+
+
+# Authors
+
+## Get news for an author
+
+> This endpoint returns JSON structured like this:
 
 ```json
 {
-  "id": 2,
-  "deleted" : ":("
+    "authorId": "oS_N5x9jbYqfcg",
+    "name": "Gary Stephens",
+    "stocks": {
+        "TSLA": [
+            {
+                "nobiasLeaning": "Buy",
+                "title": "Robert W. Baird Raises Tesla (NASDAQ:TSLA) Price Target to $650.00",
+                "content": "Tesla (NASDAQ:TSLA) had its target price upped by analysts at Robert W. Baird  from $525.00 to $650.00 in a research report issued on Thursday, BenzingaRatingsTable reports. The firm presently has a “neutral” rating on the electric vehicle producer’s stock. Robert W. Baird’s price target would indicate a potential downside of 0.09% from the stock’s previous close. \n \nOther equities analysts have also issued reports about the stock. BidaskClub upgraded shares of Tesla from a “buy” rating to a “st",
+                "url": "https://www.modernreaders.com/news/2020/02/01/robert-w-baird-raises-tesla-nasdaqtsla-price-target-to-650-00.html",
+                "accurate": null,
+                "date": "2020-02-01T09:36:35Z"
+            }
+        ],
+        "AAPL": [
+            {
+                "nobiasLeaning": "Sell",
+                "title": "Apple Inc. Forecasted to Earn Q2 2020 Earnings of $3.00 Per Share (NASDAQ:AAPL)",
+                "content": "Apple Inc. (NASDAQ:AAPL) – Research analysts at  Jefferies Financial Group decreased their Q2 2020 earnings per share estimates for Apple  in a research report issued on  Wednesday, January 29th. Jefferies Financial Group analyst K. Mcnealy now expects that the iPhone maker will post earnings of $3.00 per share for the quarter, down from their previous estimate of $3.05. Jefferies Financial Group currently  has a “Buy” rating and a $350.00 target price on the stock. Jefferies Financial Group als",
+                "url": "https://www.modernreaders.com/news/2020/02/02/apple-inc-forecasted-to-earn-q2-2020-earnings-of-3-00-per-share-nasdaqaapl.html",
+                "accurate": true,
+                "date": "2020-02-02T08:19:06Z"
+            }
+        ],
+        "FB": [
+            {
+                "nobiasLeaning": "Buy",
+                "title": "Jefferies Financial Group Research Analysts Increase Earnings Estimates for Facebook, Inc. (NASDAQ:FB)",
+                "content": "Facebook, Inc. (NASDAQ:FB) – Analysts at  Jefferies Financial Group lifted their FY2020 earnings per share estimates for shares of Facebook  in a research note issued to investors on  Monday, January 27th. Jefferies Financial Group analyst B. Thill now anticipates that the social networking company will earn $9.72 per share for the year, up from their prior estimate of $7.92. Jefferies Financial Group currently  has a “Buy” rating and a $250.00 target price on the stock. \n \nFacebook (NASDAQ:FB) ",
+                "url": "https://www.modernreaders.com/news/2020/02/01/jefferies-financial-group-research-analysts-increase-earnings-estimates-for-facebook-inc-nasdaqfb.html",
+                "accurate": true,
+                "date": "2020-02-01T10:23:58Z"
+            }
+        ]
+    }
 }
 ```
 
-This endpoint deletes a specific kitten.
+This endpoint retrieves all news articles for a given author.
 
 ### HTTP Request
 
-`DELETE http://example.com/kittens/<ID>`
+`GET https://api.nobias.com/spotcheck/finance/author/news/<ID>`
 
 ### URL Parameters
 
 Parameter | Description
 --------- | -----------
-ID | The ID of the kitten to delete
+TICKER | The ticker of the stock you want news for (example: AAPL for Apple)
 
+### Response fields
+
+These fields are roughly the same as the Stock APIs, let me know if you have questions.
