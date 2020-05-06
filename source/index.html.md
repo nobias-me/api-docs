@@ -134,7 +134,7 @@ Date/time the news article was written (UTC)
     ],
     "n_buy": 10,
     "n_sell": 3,
-    "n_unknown": 5,
+    "n_neutral": 5,
 }
 ```
 
@@ -176,8 +176,8 @@ number of articles written on this stock with nobiasLeaning of "Buy"
 ##### n_sell
 number of articles written on this stock with nobiasLeaning of "Sell"
 
-##### n_unknown
-number of articles written on this stock with nobiasLeaning of "Unknown"
+##### n_neutral
+number of articles written on this stock with nobiasLeaning of "Neutral"
 
 
 # Authors
@@ -249,21 +249,23 @@ These fields are roughly the same as the Stock APIs, let me know if you have que
 {
     "authorId": "some_id",
     "name": "Some Author",
+    "imageUrl": "http://url.com/someimage.png",
     "accuracy": [0.1, 0.8, 0.1, 0.5],
     "rank": 5,
     "stars": 3.5,
+    "n_totalAuthors": 1579,
     "stocks": {
         "TSLA": {
             "accuracy": 0.8,
             "n_buy": 10,
             "n_sell": 3,
-            "n_unknown": 5,
+            "n_neutral": 5,
         },
         "AAPL": {
             "accuracy": 0.3,
             "n_buy": 10,
             "n_sell": 3,
-            "n_unknown": 5,
+            "n_neutral": 5,
         }
     },
 }
