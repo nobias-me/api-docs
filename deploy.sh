@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 set -o errexit #abort if any command fails
 me=$(basename "$0")
-
 help_message="\
 Usage: $me [-c FILE] [<options>]
 Deploy generated files to a git branch.
@@ -18,12 +17,9 @@ Options:
       --source-only        Only build but not push
       --push-only          Only push but not build
 "
-
-
 run_build() {
   bundle exec middleman build --clean
 }
-
 parse_args() {
   # Set args from a local environment file.
   if [ -e ".env" ]; then

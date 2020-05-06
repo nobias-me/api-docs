@@ -11,10 +11,6 @@ search: true
 
 Welcome to the Nobias Finance API! These API endpoints can get information on various stocks and authors.
 
-<aside class="notice">
-These APIs are a work in progress and have not been deployed it. I will update this page as APIs are deployed, expect them to be available starting 13th April. Please mock these API responses in your code to test. (Which you should continue to do as a good practice even after the API is available)
-</aside>
-
 # Stocks
 
 ## Get news for a stock
