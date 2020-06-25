@@ -271,14 +271,13 @@ This endpoint retrieves metadata for a given author.
 
 ### HTTP Request
 
-`POST https://api.nobias.com/spotcheck/finance/author/stock/meta`
+`GET https://api.nobias.com/spotcheck/finance/author/stock/meta/<ID>`
 
-### Request Body
+### URL Parameters
 
-[
-    "authorid1",
-    "authorid2"
-]
+Parameter | Description
+--------- | -----------
+ID | The id of the author you want metadata for
 
 ### Response fields
 
@@ -293,7 +292,7 @@ The star rating for the author
 #### author.rank
 The rank for the author
 
-## Get metadata for an author
+## Get metadata for multiple authors
 
 > This endpoint returns JSON structured like this:
 
@@ -352,13 +351,14 @@ This endpoint retrieves metadata for a given author.
 
 ### HTTP Request
 
-`GET https://api.nobias.com/spotcheck/finance/author/stock/meta/<ID>`
+`POST https://api.nobias.com/spotcheck/finance/author/stock/meta`
 
-### URL Parameters
+### Request Body
 
-Parameter | Description
---------- | -----------
-ID | The id of the author you want metadata for
+[
+    "authorid1",
+    "authorid2"
+]
 
 ### Response fields
 
