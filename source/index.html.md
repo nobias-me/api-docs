@@ -271,7 +271,88 @@ This endpoint retrieves metadata for a given author.
 
 ### HTTP Request
 
-`GET https://api.nobias.com/spotcheck/author/stock/meta/<ID>`
+`POST https://api.nobias.com/spotcheck/finance/author/stock/meta`
+
+### Request Body
+
+[
+    "authorid1",
+    "authorid2"
+]
+
+### Response fields
+
+Field definitions are the same as Stock API, the only new fields are 
+
+#### author.accuracy
+This is an array of float values, arr[0] represents the accuracy for the last quarter, and it subsequent value represents accuracy for the quarter after. So if arr[0] is FY20Q2 then arr[1] is FY20Q1 and arr[2] is FY19Q4 and so on...
+
+#### author.stars
+The star rating for the author
+
+#### author.rank
+The rank for the author
+
+## Get metadata for an author
+
+> This endpoint returns JSON structured like this:
+
+```json
+[
+    {
+        "authorId": "some_id",
+        "name": "Some Author",
+        "imageUrl": "http://url.com/someimage.png",
+        "accuracy": [0.1, 0.8, 0.1, 0.5],
+        "rank": 5,
+        "stars": 3.5,
+        "n_totalAuthors": 1579,
+        "stocks": {
+            "TSLA": {
+                "accuracy": 0.8,
+                "n_buy": 10,
+                "n_sell": 3,
+                "n_neutral": 5,
+            },
+            "AAPL": {
+                "accuracy": 0.3,
+                "n_buy": 10,
+                "n_sell": 3,
+                "n_neutral": 5,
+            }
+        },
+    },
+    {
+        "authorId": "some_id",
+        "name": "Some Author",
+        "imageUrl": "http://url.com/someimage.png",
+        "accuracy": [0.1, 0.8, 0.1, 0.5],
+        "rank": 5,
+        "stars": 3.5,
+        "n_totalAuthors": 1579,
+        "stocks": {
+            "TSLA": {
+                "accuracy": 0.8,
+                "n_buy": 10,
+                "n_sell": 3,
+                "n_neutral": 5,
+            },
+            "AAPL": {
+                "accuracy": 0.3,
+                "n_buy": 10,
+                "n_sell": 3,
+                "n_neutral": 5,
+            }
+        },
+    }
+]
+```
+
+This endpoint retrieves metadata for a given author.
+
+### HTTP Request
+
+`GET https://api.nobias.com/spotcheck/finance/author/stock/meta/<ID>`
 
 ### URL Parameters
 
