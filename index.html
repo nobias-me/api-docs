@@ -239,7 +239,7 @@
                     <a href="#get-metadata-for-an-author" class="toc-h2 toc-link" data-title="Get metadata for an author">Get metadata for an author</a>
                   </li>
                   <li>
-                    <a href="#get-metadata-for-an-author-2" class="toc-h2 toc-link" data-title="Get metadata for an author">Get metadata for an author</a>
+                    <a href="#get-metadata-for-multiple-authors" class="toc-h2 toc-link" data-title="Get metadata for multiple authors">Get metadata for multiple authors</a>
                   </li>
               </ul>
           </li>
@@ -484,12 +484,19 @@
 </span></code></pre>
 <p>This endpoint retrieves metadata for a given author.</p>
 <h3 id='http-request-4'>HTTP Request</h3>
-<p><code>POST https://api.nobias.com/spotcheck/finance/author/stock/meta</code></p>
-<h3 id='request-body'>Request Body</h3>
-<p>[
-    &quot;authorid1&quot;,
-    &quot;authorid2&quot;
-]</p>
+<p><code>GET https://api.nobias.com/spotcheck/finance/author/stock/meta/&lt;ID&gt;</code></p>
+<h3 id='url-parameters-4'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>The id of the author you want metadata for</td>
+</tr>
+</tbody></table>
 <h3 id='response-fields-4'>Response fields</h3>
 <p>Field definitions are the same as Stock API, the only new fields are </p>
 <h4 id='author-accuracy'>author.accuracy</h4>
@@ -498,7 +505,7 @@
 <p>The star rating for the author</p>
 <h4 id='author-rank'>author.rank</h4>
 <p>The rank for the author</p>
-<h2 id='get-metadata-for-an-author-2'>Get metadata for an author</h2>
+<h2 id='get-metadata-for-multiple-authors'>Get metadata for multiple authors</h2>
 <blockquote>
 <p>This endpoint returns JSON structured like this:</p>
 </blockquote>
@@ -553,19 +560,12 @@
 </span></code></pre>
 <p>This endpoint retrieves metadata for a given author.</p>
 <h3 id='http-request-5'>HTTP Request</h3>
-<p><code>GET https://api.nobias.com/spotcheck/finance/author/stock/meta/&lt;ID&gt;</code></p>
-<h3 id='url-parameters-4'>URL Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>ID</td>
-<td>The id of the author you want metadata for</td>
-</tr>
-</tbody></table>
+<p><code>POST https://api.nobias.com/spotcheck/finance/author/stock/meta</code></p>
+<h3 id='request-body'>Request Body</h3>
+<p>[
+    &quot;authorid1&quot;,
+    &quot;authorid2&quot;
+]</p>
 <h3 id='response-fields-5'>Response fields</h3>
 <p>Field definitions are the same as Stock API, the only new fields are </p>
 <h4 id='author-accuracy-2'>author.accuracy</h4>
