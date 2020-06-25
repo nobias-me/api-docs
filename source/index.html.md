@@ -73,7 +73,7 @@ This endpoint retrieves all news for a given stock.
 
 ### HTTP Request
 
-`GET https://api.nobias.com/spotcheck/finance/stock/news/<TICKER>`
+`GET https://api.nobias.com/v1/spotcheck/finance/stock/news/<TICKER>`
 
 ### URL Parameters
 
@@ -138,7 +138,7 @@ This endpoint retrieves metadata for a given stock.
 
 ### HTTP Request
 
-`GET https://api.nobias.com/spotcheck/finance/stock/meta/<TICKER>`
+`GET https://api.nobias.com/v1/spotcheck/finance/stock/meta/<TICKER>`
 
 ### URL Parameters
 
@@ -225,7 +225,7 @@ This endpoint retrieves all news articles for a given author.
 
 ### HTTP Request
 
-`GET https://api.nobias.com/spotcheck/finance/author/news/<ID>`
+`GET https://api.nobias.com/v1/spotcheck/finance/author/news/<ID>`
 
 ### URL Parameters
 
