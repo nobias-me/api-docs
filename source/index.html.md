@@ -271,7 +271,7 @@ This endpoint retrieves metadata for a given author.
 
 ### HTTP Request
 
-`GET https://api.nobias.com/spotcheck/finance/author/stock/meta/<ID>`
+`GET https://api.nobias.com/v1/spotcheck/finance/author/stock/meta/<ID>`
 
 ### URL Parameters
 
@@ -321,7 +321,7 @@ This endpoint retrieves metadata for a given author.
 
 ### HTTP Request
 
-`POST https://api.nobias.com/spotcheck/finance/author/meta`
+`POST https://api.nobias.com/v1/spotcheck/finance/author/meta`
 
 ### Request Body
 
