@@ -304,22 +304,7 @@ The rank for the author
         "imageUrl": "http://url.com/someimage.png",
         "accuracy": [0.1, 0.8, 0.1, 0.5],
         "rank": 5,
-        "stars": 3.5,
-        "n_totalAuthors": 1579,
-        "stocks": {
-            "TSLA": {
-                "accuracy": 0.8,
-                "n_buy": 10,
-                "n_sell": 3,
-                "n_neutral": 5,
-            },
-            "AAPL": {
-                "accuracy": 0.3,
-                "n_buy": 10,
-                "n_sell": 3,
-                "n_neutral": 5,
-            }
-        },
+        "stars": 3.5
     },
     {
         "authorId": "some_id",
@@ -327,22 +312,7 @@ The rank for the author
         "imageUrl": "http://url.com/someimage.png",
         "accuracy": [0.1, 0.8, 0.1, 0.5],
         "rank": 5,
-        "stars": 3.5,
-        "n_totalAuthors": 1579,
-        "stocks": {
-            "TSLA": {
-                "accuracy": 0.8,
-                "n_buy": 10,
-                "n_sell": 3,
-                "n_neutral": 5,
-            },
-            "AAPL": {
-                "accuracy": 0.3,
-                "n_buy": 10,
-                "n_sell": 3,
-                "n_neutral": 5,
-            }
-        },
+        "stars": 3.5
     }
 ]
 ```
